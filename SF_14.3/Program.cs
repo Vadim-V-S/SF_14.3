@@ -41,7 +41,8 @@ namespace SF_14._3
         static void PrintPage(int num, List<Contact> phoneBook)
         {
             var SelectedRecords = phoneBook.OrderBy(n => n.Name).
-                ThenBy(l => l.LastName).Skip(num * 2).Take(2);
+                ThenBy(l => l.LastName).
+                Skip(num * 2).Take(2);
 
             foreach (var rec in SelectedRecords)
                 Console.WriteLine($"{rec.Name} {rec.LastName} тел: {rec.PhoneNumber}, email: {rec.Email}");
