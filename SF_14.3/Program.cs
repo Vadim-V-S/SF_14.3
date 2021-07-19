@@ -42,10 +42,14 @@ namespace SF_14._3
         {
             var SelectedRecords = phoneBook.OrderBy(n => n.Name).
                 ThenBy(l => l.LastName).
-                Skip(num * 2).Take(2);
+                Skip(num * 2).Take(2).ToList();
 
-            foreach (var rec in SelectedRecords)
-                Console.WriteLine($"{rec.Name} {rec.LastName} тел: {rec.PhoneNumber}, email: {rec.Email}");
+            if (SelectedRecords.Count != 0)
+            {
+                foreach (var rec in SelectedRecords)
+                    Console.WriteLine($"{rec.Name} {rec.LastName} тел: {rec.PhoneNumber}, email: {rec.Email}");
+            }
+            else Console.WriteLine("Нет данных");
         }
     }
 }
